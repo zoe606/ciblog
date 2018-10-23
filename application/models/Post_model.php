@@ -12,7 +12,7 @@
                 return $query->result_array();
             }
             
-            $query = $this->db->get('posts', array('slug' => $slug));
+            $query = $this->db->get_where('posts', array('slug' => $slug));
             return $query->row_array();
 
         }
