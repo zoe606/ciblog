@@ -62,12 +62,16 @@
                 }
 
                 $this->post_model->create_post($post_image);
+                //set msg
+                $this->session->set_flashdata('post_created', 'Post has been created');
                 redirect('posts');
             }
         }
 
         public function delete($id){
             $this->post_model->delete_post($id);
+             //set msg
+            $this->session->set_flashdata('post_deleted', 'Post has been deleted');
              redirect('posts');
         }
 
@@ -89,6 +93,8 @@
 
         public function update(){
             $this->post_model->update_post();
+            //set msg
+            $this->session->set_flashdata('post_updated', 'Post has been updated');
             redirect('posts');
         }
 
