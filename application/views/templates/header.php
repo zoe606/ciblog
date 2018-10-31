@@ -5,7 +5,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<link rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.min.css">
+		<link rel="stylesheet" href="https://bootswatch.com/3/simplex/bootstrap.min.css">
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
 		<script src="https://cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
 		<title>CiBlog</title>
@@ -69,4 +69,8 @@
 
 			<?php if($this->session->flashdata('user_loggedout')): ?> 
 				<?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedout').'</p>'; ?>
+			<?php endif; ?>
+
+			<?php if($this->session->flashdata('category_deleted')): ?> 
+				<?php echo '<p class="alert alert-success">'.$this->session->flashdata('category_deleted').'</p>'; ?>
 			<?php endif; ?>

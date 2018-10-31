@@ -23,6 +23,8 @@
 		<h5><?php echo $comment['body']; ?> By <strong><?php echo $comment['name']; ?></strong></h5>
 	</div>
 	<?php endforeach; ?>
+	<?php else : ?>
+	<p>No Comments To Display</p>
 <?php endif; ?>
 <hr>
 <h3>Add Comment</h3>

@@ -4,7 +4,10 @@
             $this->load->database();
         }
 
-        public function get_posts($slug = FALSE ){
+        public function get_posts($slug = FALSE, $limit = FALSE, $offset = FALSE ){
+            if($limit){
+                $this->db->limit($limit, $offset);
+            }
 
             if($slug === FALSE){
                 $this->db->order_by('posts.id', 'DESC');
@@ -34,6 +37,13 @@
         }
 
         public function delete_post ($id){
+            $image_file_name = $this->db->select('post_image')->get_where('posts', 
+            array('id' => $id))->row()->post_image;
+			$cwd = getcwd(); // save the current working directory
+			$image_file_path = $cwd."\\assets\\images\\posts\\";
+			chdir($image_file_path);
+			unlink($image_file_name);
+			chdir($cwd); // Restore the previous working directory
             $this->db->where('id', $id);
             $this->db->delete('posts');
             return true;

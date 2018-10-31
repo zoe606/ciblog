@@ -41,4 +41,15 @@
             $this->load->view('templates/footer');
         }
 
+          public function delete($id){
+             //  check login
+            if(!$this->session->userdata('logged_in')){
+                redirect('users/login');
+            }
+            $this->category_model->delete_category($id);
+             //set msg
+            $this->session->set_flashdata('category_deleted', 'Category has been deleted');
+             redirect('categories');
+        }
+
     }
